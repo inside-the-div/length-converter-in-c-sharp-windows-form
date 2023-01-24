@@ -39,6 +39,7 @@ namespace LengthConverter
             SQLselectQuery.Fill(HistoryDataTable);
             DatagridviewHistory.DataSource = HistoryDataTable;
             this.DatagridviewHistory.Columns["ID"].Visible = false;
+            DatagridviewHistory.AutoResizeColumns();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
