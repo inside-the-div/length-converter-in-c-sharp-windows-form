@@ -28,11 +28,11 @@ namespace LengthConverter
         public void DisplayHistory()
         {
             string HistoryShow = "SELECT converted_id AS ID, " +
-                "converted_from AS 'Unit From', " +
-                "converted_to AS 'Unit TO', " +
-                "converted_number AS 'Convert Number',  " +
+                "converted_from AS 'From', " +
+                "converted_to AS 'TO', " +
+                "converted_number AS 'Input',  " +
                 "result AS Result, " +
-                "converted_datetime AS Date " +
+                "converted_datetime AS 'Date Time' " +
                 "FROM length_convert_history";
             SqlDataAdapter SQLselectQuery = new SqlDataAdapter(HistoryShow, DBconnection);
             DataTable HistoryDataTable = new DataTable();
@@ -114,6 +114,11 @@ namespace LengthConverter
                 DatagridviewHistory.ClearSelection();
             }
             DBconnection.Close();
+            DisplayHistory();
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
             DisplayHistory();
         }
     }

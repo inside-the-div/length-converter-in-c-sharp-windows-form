@@ -5,7 +5,7 @@ namespace LengthConverter
 {
     public partial class LengthConverterHome : Form
     {
-        SqlConnection DBconnection = new SqlConnection("Data Source=.; Initial Catalog = length_converter_db; TrustServerCertificate=True; Integrated Security=True ");
+        SqlConnection DBconnection = new SqlConnection(Properties.Settings.Default.con);
         public LengthConverterHome()
         {
             InitializeComponent();
@@ -56,7 +56,6 @@ namespace LengthConverter
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label1.Text = comboBox1.SelectedItem.ToString();
             if (textBox2.Text == "" || textBox2.Text == ".")
             {
                 textBox2.Text = string.Empty;
@@ -64,14 +63,13 @@ namespace LengthConverter
             else
             {
                 double Number = Convert.ToDouble(textBox2.Text);
-                double Result = LengthCconverter(Number, label2.Text, label1.Text);
+                double Result = LengthCconverter(Number, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
                 textBox1.Text = Result.ToString();
             }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label2.Text = comboBox2.SelectedItem.ToString();
             if (textBox1.Text == "" || textBox1.Text == ".")
             {
                 textBox2.Text = string.Empty;
@@ -79,7 +77,7 @@ namespace LengthConverter
             else
             {
                 double Number = Convert.ToDouble(textBox1.Text);
-                double Result = LengthCconverter(Number, label1.Text, label2.Text);
+                double Result = LengthCconverter(Number, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
                 textBox2.Text = Result.ToString();
             }
         }
@@ -93,15 +91,15 @@ namespace LengthConverter
             else
             {
                 double Number = Convert.ToDouble(textBox1.Text);
-                double Result = LengthCconverter(Number, label1.Text, label2.Text);
+                double Result = LengthCconverter(Number, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
                 textBox2.Text = Result.ToString();
                 if (e.KeyCode == Keys.Enter)
                 {
                     string time = DateTime.Now.ToString();
                     string HistorySaveQuery = " INSERT INTO length_convert_history " +
                         "(converted_from, converted_to, converted_number, result, converted_datetime) VALUES " +
-                        "('" + label1.Text + "', '"
-                        + label2.Text + "', "
+                        "('" + comboBox1.SelectedItem.ToString() + "', '"
+                        + comboBox2.SelectedItem.ToString() + "', "
                         + Number + ", '" +
                         Result.ToString() + "','" +
                         time + "')";
@@ -122,15 +120,15 @@ namespace LengthConverter
             else
             {
                 double Number = Convert.ToDouble(textBox2.Text);
-                double Result = LengthCconverter(Number, label2.Text, label1.Text);
+                double Result = LengthCconverter(Number, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
                 textBox1.Text = Result.ToString();
                 if (e.KeyCode == Keys.Enter)
                 {
                     string time = DateTime.Now.ToString();
                     string HistorySaveQuery = " INSERT INTO length_convert_history " +
                         "(converted_from, converted_to, converted_number, result, converted_datetime) VALUES " +
-                        "('" + label2.Text + "', '"
-                        + label1.Text + "', "
+                        "('" + comboBox2.SelectedItem.ToString() + "', '"
+                        + comboBox1.SelectedItem.ToString() + "', "
                         + Number + ", '" +
                         Result.ToString() + "','" +
                         time + "')";

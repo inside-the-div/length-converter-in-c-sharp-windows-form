@@ -34,6 +34,7 @@
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridviewHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,17 +63,17 @@
             this.DatagridviewHistory.AllowUserToResizeRows = false;
             this.DatagridviewHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DatagridviewHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatagridviewHistory.Location = new System.Drawing.Point(2, 32);
+            this.DatagridviewHistory.Location = new System.Drawing.Point(12, 32);
             this.DatagridviewHistory.Name = "DatagridviewHistory";
             this.DatagridviewHistory.RowHeadersVisible = false;
             this.DatagridviewHistory.RowTemplate.Height = 25;
             this.DatagridviewHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatagridviewHistory.Size = new System.Drawing.Size(382, 208);
+            this.DatagridviewHistory.Size = new System.Drawing.Size(472, 208);
             this.DatagridviewHistory.TabIndex = 6;
             // 
             // btnDeleteAll
             // 
-            this.btnDeleteAll.Location = new System.Drawing.Point(309, 3);
+            this.btnDeleteAll.Location = new System.Drawing.Point(409, 3);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteAll.TabIndex = 9;
@@ -82,7 +83,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(309, 246);
+            this.btnDelete.Location = new System.Drawing.Point(409, 246);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 8;
@@ -92,7 +93,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(2, 246);
+            this.btnBack.Location = new System.Drawing.Point(12, 246);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 7;
@@ -100,22 +101,32 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(196, 3);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btnShowAll.TabIndex = 12;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
             // LengthHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 273);
+            this.ClientSize = new System.Drawing.Size(496, 276);
+            this.Controls.Add(this.btnShowAll);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerSearch);
             this.Controls.Add(this.DatagridviewHistory);
             this.Controls.Add(this.btnDeleteAll);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBack);
-            this.MaximumSize = new System.Drawing.Size(404, 312);
             this.MinimumSize = new System.Drawing.Size(404, 312);
             this.Name = "LengthHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LengthHistory";
+            this.Text = "Length History";
             this.Load += new System.EventHandler(this.LengthHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DatagridviewHistory)).EndInit();
             this.ResumeLayout(false);
@@ -131,5 +142,6 @@
         private Button btnDeleteAll;
         private Button btnDelete;
         private Button btnBack;
+        private Button btnShowAll;
     }
 }
